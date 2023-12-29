@@ -3,7 +3,8 @@ I spent way too long on this... It's a web page where you can generate a passwor
 ### How to Run
 1. Clone into this repository
 2. Serve `index.html` with your favorite web server, or just open it in a browser
-3. Profit.
+   - Requires internet access to download Bootstrap JS/CSS
+4. Profit.
 
 ### Features and Usage
 **Password length**
