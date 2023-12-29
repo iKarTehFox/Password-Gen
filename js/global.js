@@ -30,8 +30,8 @@ function genPass(_charSet) {
 
     // Set constant for maximum tries
     // Higher values (10 million) will take longer, but gives it a chance to successfully generate a password with startingSubst.
-    // Lower values (<500k) are recommended if you have a slow CPU, but less attempts to generate desired password.
-    const maxTries = 500000;
+    // Lower values (<1m) are recommended if you have a slow CPU, but less attempts to generate desired password.
+    const maxTries = 5000000;
 
     // Check and validate startingSubst
     if (setting.startingSubst.value.length > 0) {
