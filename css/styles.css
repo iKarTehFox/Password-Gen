@@ -1,0 +1,15 @@
+#password {
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace;
+    size: 3vw;
+    user-select: all;
+}
+
+#copyBtn {
+    display: none;
+}
+
+body {
+    background-color: #000 !important;
+    color: #fff!important;
+}

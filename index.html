@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Meta -->
+    <title>Random Password Generator</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="./css/styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <!-- JS -->
+    <script src="./js/global.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous" defer></script>
+</head>
+<body>
+    <div class="d-flex flex-column align-items-center justify-content-center vh-100">
+        <h1>Random Password Generator</h1>
+        <p>Choose your password length:</p>
+        <input type="range" id="lengthRange" min="5" max="64" step="1" value="12">
+        <label for="lengthRange" id="lengthLabel"></label>
+        <br>
+        <p>Include the following:</p>
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-2 text-center">
+                    <input type="checkbox" id="includeUppercase"><label for="includeUppercase">Uppercase</label>
+                    
+                </div>
+                <div class="col-2 text-center">
+                    <input type="checkbox" id="includeLowercase" checked disabled>
+                    <label for="includeLowercase">Lowercase</label>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-2 text-center">
+                    <input type="checkbox" id="includeNumbers" checked>
+                    <label for="includeNumbers">Numbers</label>
+                </div>
+                <div class="col-2 text-center">
+                    <input type="checkbox" id="includeSymbols">
+                    <label for="includeSymbols">Symbols</label>
+                </div>
+            </div>
+        </div>
+        <p>Start string with:</p>
+        <input type="text" id="substrInclude" maxlength="5"></input>
+        <br>
+        <button onclick="makeCharSet(true)" id="genPassBtn">Generate Password</button>
+        <br>
+        <span id="passwordFld" class="text-center"></span>
+    </div>
+</body>
+</html>
