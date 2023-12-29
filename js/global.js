@@ -27,11 +27,15 @@ function genPass(_charSet) {
     // Initialize objects and get charSet
     let password = "";
     let counter = 0;
-    const maxTries = 10000000;
+
+    // Set constant for maximum tries
+    // Higher values (10 million) will take longer, but gives it a chance to successfully generate a password with startingSubst.
+    // Lower values (<500k) are recommended if you have a slow CPU, but less attempts to generate desired password.
+    const maxTries = 500000;
 
     // Check and validate startingSubst
     if (setting.startingSubst.value.length > 0) {
-        if (!validateStartingSubst(setting)) { // Run validation function
+        if (!validateStartingSubst(setting, _charSet)) { // Run validation function
             return 1;
         }
 
@@ -68,14 +72,19 @@ function genPass(_charSet) {
     return 0;
 }
 
-function validateStartingSubst(_setting) {
+function validateStartingSubst(_setting, _charSet) {
     if (_setting.startingSubst.value.length < 1) {
         alert("Please enter a starting substring to include in the password.");
         throw new Error("Starting substring is required.");
     }
 
-    // Check substring characters
+    // Init constant for substring characters
     const substringChars = new Set(_setting.startingSubst.value);
+
+    // Check for characters outside the specified character set
+    const invalidChars = [...substringChars].filter(c => !_charSet.includes(c)).join('');
+
+    // Check disabled character sets
     if (!_setting.isUpInclude.checked && hasUppercase(substringChars)) {
         alert("Substring contains uppercase letters, but Uppercase is not enabled.");
         console.warn("Uppercase letters in substring without Uppercase enabled.");
@@ -91,8 +100,17 @@ function validateStartingSubst(_setting) {
         console.warn("Symbols in substring without Symbols enabled.");
         return false;
     }
+
+    // Check for other invalid characters
+    if (invalidChars.length > 0) {
+        alert(`Invalid characters found in substring: ${invalidChars}`);
+        console.warn(`Invalid characters found in substring: ${invalidChars}`);
+        return false;
+    }
+
     return true;
 }
+
 
 function hasUppercase(chars) {
     return [...chars].some(c => c.toLowerCase() !== c);
