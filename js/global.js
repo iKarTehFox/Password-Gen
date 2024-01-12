@@ -131,5 +131,5 @@ setting.passLength.addEventListener("input", function() {
     var lengthValue = this.value;
 
     // Update the textContent of the label
-    setting.lengthLabel.textContent = `Length: ${lengthValue}`;
+    setting.lengthLabel.textContent = `Length: ${lengthValue}${lengthValue == 63 ? " (WPA Character Limit)": lengthValue > 63 ? " (Greater than WPA Limit!)" : ""}`;
 });
