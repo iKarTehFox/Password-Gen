@@ -14,7 +14,7 @@ It's a web page where you can generate a password... ¯\_(ツ)_/¯
 - Set how many characters you want in your password with the range slider
 
 **Password character sets**
-- Enable including lowecase and uppercase letters, numbers, and symbols
+- Enable including lowercase & uppercase letters, numbers, and symbols
 
 # Credits (Open Source)
 **Bootstrap** ([Link](https://getbootstrap.com/))
